@@ -1,0 +1,31 @@
+DELETE http://localhost:3003/api/blogs/67bcbbf8fde7989dba1cf3b2
+
+### GET BLOGS
+GET http://localhost:3003/api/blogs
+
+### CREATE BLOG
+POST http://localhost:3003/api/blogs
+content-type: application/json
+
+{
+  "title": "Test Blog",
+  "author": "Me",
+  "url": "www.blog.co",
+  "likes": 12
+}
+
+### UPDATE BLOG
+PUT http://localhost:3003/api/blogs/67b362b19bffc6e7ce1d5202
+content-type: application/json
+
+{
+  "title": "Test Blog",
+  "author": "Me",
+  "url": "www.blog.co",
+  "likes": 12
+}
+
+# {
+#   "name": "Shoko Loko",
+#   "number": "11"
+# }
