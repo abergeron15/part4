@@ -24,4 +24,18 @@ const mostBlogs = (blogs) => {
   return author
 }
 
-module.exports = { dummy, totalLikes, favoriteBlog, mostBlogs }
+const mostLikes = (blogs) => {
+  return _.reduce(
+    blogs,
+    (acc, blog) => {
+      acc.totals[blog.author] = (acc.totals[blog.author] || 0) + blog.likes;
+      if (acc.totals[blog.author] > _.get(acc.max, 'likes', 0)) {
+        _.assign(acc.max, { author: blog.author, likes: acc.totals[blog.author] });
+      }
+      return acc;
+    },
+    { totals: {}, max: {} }
+  ).max;
+}
+
+module.exports = { dummy, totalLikes, favoriteBlog, mostBlogs, mostLikes }
